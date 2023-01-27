@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OnBoradingScreen1 extends StatefulWidget {
+class OnBoardingScreen1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
