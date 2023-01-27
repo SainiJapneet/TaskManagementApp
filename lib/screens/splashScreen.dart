@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:logo_n_spinner/logo_n_spinner.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -35,9 +36,14 @@ class MyStatefulWidget extends State<StatefulWidget> {
           children: [
             myBoldText(size: 40, myText: "Task Manager"),
             mySizedBox(10),
-            Image.asset("assets/Icon.jpg"),
+            LogoandSpinner(
+              imageAssets: 'assets/Icon.jpg',
+              reverse: true,
+              arcColor: Colors.blue,
+              spinSpeed: Duration(seconds: 1),
+            ),
             mySizedBox(5),
-            myBoldText(size: 10, myText: "Managing tasks, made easier")
+            myBoldText(size: 15, myText: "Managing tasks, made easier")
           ],
         ),
       ))),
