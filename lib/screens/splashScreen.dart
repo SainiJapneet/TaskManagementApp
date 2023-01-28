@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:logo_n_spinner/logo_n_spinner.dart';
+import 'package:task_management_app/main.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class MyStatefulWidget extends State<StatefulWidget> {
   void initState() {
     Future.delayed(
       Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/onboarding1'),
+      () => Navigator.popAndPushNamed(context, '/onboarding1'),
     );
     // TODO: implement initState
     super.initState();
@@ -48,16 +49,5 @@ class MyStatefulWidget extends State<StatefulWidget> {
         ),
       ))),
     ));
-  }
-
-  Widget mySizedBox(double height) {
-    return SizedBox(
-      height: height,
-    );
-  }
-
-  Widget myBoldText({required double size, required String myText}) {
-    return Text(myText,
-        style: TextStyle(fontSize: size, fontWeight: FontWeight.bold));
   }
 }
