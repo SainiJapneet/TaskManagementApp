@@ -62,34 +62,81 @@ Widget myPasswordTextField({required double width, required String hint}) {
   );
 }
 
-Widget myListContainer() {
+Widget myListContainer(
+    {String? title,
+    String? date,
+    String? time,
+    String? priority,
+    String? status}) {
   return Container(
-    child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    margin: EdgeInsets.all(10),
+    width: double.infinity * .80,
+    height: 150,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Color.fromARGB(255, 183, 204, 149)),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        mySizedBox(3),
+        Container(
+          margin: EdgeInsets.all(4),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Color.fromARGB(255, 230, 217, 178)),
+          child: Padding(
+              padding: EdgeInsets.all(4),
+              child: myBoldText(size: 24, myText: "$title")),
+        ),
+        mySizedBox(3),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            mySizedBox(5),
-            Container(),
-            mySizedBox(5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(),
-                Container(),
-              ],
+            Container(
+              margin: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 230, 217, 178)),
+              child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: myBoldText(size: 16, myText: "Date: $date")),
             ),
-            mySizedBox(5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  decoration: BoxDecoration(),
-                ),
-                Container(),
-              ],
+            Container(
+              margin: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 230, 217, 178)),
+              child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: myBoldText(size: 16, myText: "Priority: $priority")),
             ),
           ],
-        )),
+        ),
+        mySizedBox(3),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              margin: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 230, 217, 178)),
+              child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: myBoldText(size: 16, myText: "Time: $time")),
+            ),
+            Container(
+              margin: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromARGB(255, 230, 217, 178)),
+              child: Padding(
+                  padding: EdgeInsets.all(4),
+                  child: myBoldText(size: 16, myText: "Status: $status")),
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }
