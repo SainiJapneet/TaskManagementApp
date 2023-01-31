@@ -13,18 +13,19 @@ class OnBoardingScreen2 extends StatefulWidget {
 class MyOnBoardingScreen2 extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: Container(
-            color: Colors.teal,
-            child: InkWell(
-              child: myBoldText(size: 20, myText: "OnBoarding Screen2"),
-              onTap: () {
-                Navigator.popAndPushNamed(context, "/onboarding3");
-              },
-            )),
-      )),
-    ));
+          body: SafeArea(
+              child: Center(
+            child: Container(
+                color: Colors.teal,
+                child: InkWell(
+                  child: myBoldText(size: 20, myText: "OnBoarding Screen2"),
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/onboarding3");
+                  },
+                )),
+          )),
+        ));
   }
 }

@@ -6,13 +6,14 @@ class LoginScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyLoginSCreen();
+    return MyLoginScreen();
   }
 }
 
-class MyLoginSCreen extends State<StatefulWidget> {
+class MyLoginScreen extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
           body: SafeArea(
         child: Center(
@@ -28,14 +29,11 @@ class MyLoginSCreen extends State<StatefulWidget> {
                       hint: "User ID",
                       icn: Icon(Icons.account_box_rounded)),
                   mySizedBox(5),
-                  myTextField(
-                      width: 240,
-                      hint: "Password",
-                      icn: Icon(Icons.key),
-                      obscure: true),
+                  myPasswordTextField(width: 240, hint: "Password"),
                   mySizedBox(10),
                   ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () =>
+                          {Navigator.popAndPushNamed(context, "/homescreen")},
                       child: myBoldText(size: 12, myText: "Log In")),
                   mySizedBox(10),
                   InkWell(

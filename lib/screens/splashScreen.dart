@@ -24,30 +24,31 @@ class MyStatefulWidget extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      body: SafeArea(
-          child: Center(
-              child: Container(
-        width: MediaQuery.of(context).size.width * .90,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            myBoldText(size: 40, myText: "Task Manager"),
-            mySizedBox(10),
-            LogoandSpinner(
-              imageAssets: 'assets/Icon.jpg',
-              reverse: true,
-              arcColor: Colors.blue,
-              spinSpeed: Duration(seconds: 1),
+          body: SafeArea(
+              child: Center(
+                  child: Container(
+            width: MediaQuery.of(context).size.width * .90,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
             ),
-            mySizedBox(5),
-            myBoldText(size: 15, myText: "Managing tasks, made easier")
-          ],
-        ),
-      ))),
-    ));
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                myBoldText(size: 40, myText: "Task Manager"),
+                mySizedBox(10),
+                LogoandSpinner(
+                  imageAssets: 'assets/Icon.jpg',
+                  reverse: true,
+                  arcColor: Colors.blue,
+                  spinSpeed: Duration(seconds: 1),
+                ),
+                mySizedBox(5),
+                myBoldText(size: 15, myText: "Managing tasks, made easier")
+              ],
+            ),
+          ))),
+        ));
   }
 }

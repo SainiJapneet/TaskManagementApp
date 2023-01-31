@@ -41,17 +41,55 @@ Widget myBoldText({required double size, required String myText}) {
       style: TextStyle(fontSize: size, fontWeight: FontWeight.bold));
 }
 
-Widget myTextField(
-    {required double width,
-    required String hint,
-    required Icon icn,
-    bool obscure = false}) {
+Widget myTextField({required double width, required String hint, Icon? icn}) {
   return SizedBox(
     width: width,
     child: TextField(
       textAlign: TextAlign.start,
       decoration: InputDecoration(hintText: hint, icon: icn),
-      obscureText: obscure,
     ),
+  );
+}
+
+Widget myPasswordTextField({required double width, required String hint}) {
+  return SizedBox(
+    width: width,
+    child: TextField(
+      textAlign: TextAlign.start,
+      decoration: InputDecoration(hintText: hint, icon: Icon(Icons.lock)),
+      obscureText: true,
+    ),
+  );
+}
+
+Widget myListContainer() {
+  return Container(
+    child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            mySizedBox(5),
+            Container(),
+            mySizedBox(5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(),
+                Container(),
+              ],
+            ),
+            mySizedBox(5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  decoration: BoxDecoration(),
+                ),
+                Container(),
+              ],
+            ),
+          ],
+        )),
   );
 }

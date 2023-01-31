@@ -11,6 +11,13 @@ class HomeScreen extends StatefulWidget {
 
 class MyHomeScreen extends State<StatefulWidget> {
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          body: SafeArea(
+              child: Center(
+        //child: ListView.separated(itemBuilder: myList.lenght, separatorBuilder: separatorBuilder, itemCount: itemCount),
+      ))),
+    );
   }
 }
