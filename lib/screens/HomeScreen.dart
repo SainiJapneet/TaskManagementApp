@@ -11,23 +11,54 @@ class HomeScreen extends StatefulWidget {
 }
 
 class MyHomeScreen extends State<StatefulWidget> {
+  int selectedIndex = 0;
+
+  void onItemSelected(int index) {
+    //Code for bottomNavigationBar
+    switch (index) {
+      case 0:
+        Navigator.popAndPushNamed(context, "/homescreen");
+        break;
+      case 1:
+        print("Adding a new task");
+        break;
+      case 2:
+        Navigator.popAndPushNamed(context, "/loginscreen");
+        break;
+    }
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           body: SafeArea(
-              child: Center(
-        child: ListView.builder(
-            itemCount: myList.length,
-            itemBuilder: (context, index) {
-              return myListContainer(
-                  title: myList[index][0],
-                  date: myList[index][1],
-                  time: myList[index][2],
-                  priority: myList[index][3],
-                  status: myList[index][4]);
-            }),
-      ))),
+            child: Center(
+              child: ListView.builder(
+                  itemCount: myList.length,
+                  itemBuilder: (context, index) {
+                    return myListContainer(
+                        title: myList[index][0],
+                        date: myList[index][1],
+                        time: myList[index][2],
+                        priority: myList[index][3],
+                        status: myList[index][4]);
+                  }),
+            ),
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+              BottomNavigationBarItem(icon: Icon(Icons.post_add), label: "New"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.logout), label: "Log Out")
+            ],
+            currentIndex: selectedIndex,
+            onTap: onItemSelected,
+          )),
     );
   }
 
