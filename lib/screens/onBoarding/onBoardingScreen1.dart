@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management_app/main.dart';
 
 class OnBoardingScreen1 extends StatefulWidget {
   @override
@@ -12,14 +13,19 @@ class OnBoardingScreen1 extends StatefulWidget {
 class MyOnBoardingScreen1 extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: Container(
-          color: Colors.teal,
-          child: Text("OnBoarding Screen1"),
-        ),
-      )),
-    ));
+          body: SafeArea(
+              child: Center(
+            child: Container(
+                color: Colors.teal,
+                child: InkWell(
+                  child: myBoldText(size: 20, myText: "OnBoarding Screen1"),
+                  onTap: () {
+                    Navigator.popAndPushNamed(context, "/onboarding2");
+                  },
+                )),
+          )),
+        ));
   }
 }
