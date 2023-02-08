@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_management_app/constants/Routes.dart';
+import 'package:task_management_app/floatingActionButton/add_page_sheet.dart';
+import 'package:task_management_app/screens/AddTask.dart';
 import 'package:task_management_app/screens/HomeScreen.dart';
 import 'package:task_management_app/screens/LogInScreen.dart';
 import 'package:task_management_app/screens/SignUpScreen.dart';
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
       routes: {
+        Routes.addTaskScreen: (context) => AddPageSheet(),
         Routes.homeScreen: (context) => HomeScreen(),
         Routes.loginScreen: (context) => LoginScreen(),
         Routes.onBoardingScreen1: (context) => OnBoardingScreen1(),

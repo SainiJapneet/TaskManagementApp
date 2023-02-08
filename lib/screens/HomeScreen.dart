@@ -20,7 +20,7 @@ class MyHomeScreen extends State<StatefulWidget> {
         Navigator.popAndPushNamed(context, "/homescreen");
         break;
       case 1:
-        print("Adding a new task");
+        Navigator.pushNamed(context, "/addtaskscreen");
         break;
       case 2:
         Navigator.popAndPushNamed(context, "/loginscreen");

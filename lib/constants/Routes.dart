@@ -1,4 +1,5 @@
 class Routes {
+  static const String addTaskScreen = "/addtaskscreen";
   static const String homeScreen = "/homescreen";
   static const String loginScreen = "/loginscreen";
   static const String onBoardingScreen1 = "/onboarding1";
