@@ -9,8 +9,15 @@ import 'package:task_management_app/screens/onBoarding/onBoardingScreen1.dart';
 import 'package:task_management_app/screens/onBoarding/onBoardingScreen2.dart';
 import 'package:task_management_app/screens/onBoarding/onBoardingScreen3.dart';
 import 'package:task_management_app/screens/splashScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+String myUser = "user";
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -44,23 +51,32 @@ Widget myBoldText({required double size, required String myText}) {
       style: TextStyle(fontSize: size, fontWeight: FontWeight.bold));
 }
 
-Widget myTextField({required double width, required String hint, Icon? icn}) {
+Widget myTextField(
+    {required double width,
+    required String hint,
+    required TextEditingController ctrl,
+    Icon? icn}) {
   return SizedBox(
     width: width,
     child: TextField(
       textAlign: TextAlign.start,
+      controller: ctrl,
       decoration: InputDecoration(hintText: hint, icon: icn),
     ),
   );
 }
 
-Widget myPasswordTextField({required double width, required String hint}) {
+Widget myPasswordTextField(
+    {required double width,
+    required String hint,
+    required TextEditingController ctrl}) {
   return SizedBox(
     width: width,
     child: TextField(
       textAlign: TextAlign.start,
       decoration: InputDecoration(hintText: hint, icon: Icon(Icons.lock)),
       obscureText: true,
+      controller: ctrl,
     ),
   );
 }

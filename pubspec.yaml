@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   logo_n_spinner: ^0.1.2+1
   flutter_hide_show_password_input: ^0.0.1
+  firebase_auth: ^4.2.6
+  google_sign_in: ^6.0.1
+  cloud_firestore: ^4.4.3
 
 dev_dependencies:
   flutter_test:
