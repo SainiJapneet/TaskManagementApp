@@ -63,12 +63,20 @@ class MyLoginScreen extends State<StatefulWidget> {
                   ),
                   if (signInError == 1)
                     Container(
-                      child: Text("Please enter correct Email"),
+                      child: Text("Please enter correct Email",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20)),
                       alignment: Alignment.bottomCenter,
                     )
                   else if (signInError == 2)
                     Container(
-                      child: Text("Password doesn't match"),
+                      child: Text("Password doesn't match",
+                          style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20)),
                       alignment: Alignment.bottomCenter,
                     )
                 ],
@@ -86,14 +94,18 @@ class MyLoginScreen extends State<StatefulWidget> {
         myUser = emailController.text;
       });
       signInError = 0;
-      Navigator.pushNamed(context, "/homescreen");
+      Navigator.pushNamed(context, "/userinfoscreen");
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         print("Please enter correct Email");
-        signInError = 1;
+        setState(() {
+          signInError = 1;
+        });
       } else if (e.code == "wrong-password") {
         print("Password doesn't match!");
-        signInError = 2;
+        setState(() {
+          signInError = 2;
+        });
       }
     }
   }

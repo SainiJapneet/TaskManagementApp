@@ -46,12 +46,29 @@ class MySignUpScreen extends State<StatefulWidget> {
               ElevatedButton(onPressed: mySignUp, child: Text("SignUp")),
               if (signUpError == 1)
                 Container(
-                  child: Text("Too weak to be password..."),
+                  child: Text("Too weak to be password...",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
                   alignment: Alignment.bottomCenter,
                 )
               else if (signUpError == 2)
                 Container(
-                  child: Text("Account already exists!"),
+                  child: Text("Account already exists!",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
+                  alignment: Alignment.bottomCenter,
+                )
+              else if (signUpError == 3)
+                Container(
+                  child: Text("Account already exists!",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20)),
                   alignment: Alignment.bottomCenter,
                 )
             ],
@@ -69,15 +86,30 @@ class MySignUpScreen extends State<StatefulWidget> {
               password: signUpPasswordController.text);
       final myCollection =
           FirebaseFirestore.instance.collection(signUpEmailController.text);
-      signUpError = 0;
-      Navigator.pushNamed(context, "/signupscreen");
+      signUpEmailController.clear();
+      signUpPasswordController.clear();
+      signUpPasswordController2.clear();
+      if (signUpPasswordController.text != signUpPasswordController2.text) {
+        setState(() {
+          signUpError = 3;
+        });
+      } else {
+        setState(() {
+          signUpError = 0;
+        });
+        Navigator.pushNamed(context, "/signinscreen");
+      }
     } on FirebaseAuthException catch (e) {
       if (e.code == "weak-password") {
         print("Weak password");
-        signUpError = 1;
+        setState(() {
+          signUpError = 1;
+        });
       } else if (e.code == "email-already-in-use") {
         print("Account already exists");
-        signUpError = 2;
+        setState(() {
+          signUpError = 2;
+        });
       }
     } catch (e) {
       print(e);
