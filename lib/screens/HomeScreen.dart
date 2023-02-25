@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management_app/main.dart';
@@ -13,16 +14,21 @@ class HomeScreen extends StatefulWidget {
 class MyHomeScreen extends State<StatefulWidget> {
   int selectedIndex = 0;
 
-  void onItemSelected(int index) {
+  Future onItemSelected(int index) async {
     //Code for bottomNavigationBar
     switch (index) {
       case 0:
         Navigator.popAndPushNamed(context, "/homescreen");
         break;
       case 1:
-        Navigator.pushNamed(context, "/addtaskscreen");
+        Navigator.pushNamed(context, "/profileScreen");
         break;
       case 2:
+        Navigator.pushNamed(context, "/addtaskscreen");
+        break;
+      case 3:
+        myUser = "";
+        await FirebaseAuth.instance.signOut();
         Navigator.popAndPushNamed(context, "/loginscreen");
         break;
     }
@@ -50,11 +56,24 @@ class MyHomeScreen extends State<StatefulWidget> {
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
             items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-              BottomNavigationBarItem(icon: Icon(Icons.post_add), label: "New"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.logout), label: "Log Out")
+                  icon: Icon(Icons.home, size: 20), label: "Home"),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.account_box,
+                    size: 20,
+                  ),
+                  label: "Profile"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.post_add, size: 20), label: "New"),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.logout,
+                    size: 20,
+                  ),
+                  label: "Log Out")
             ],
             currentIndex: selectedIndex,
             onTap: onItemSelected,

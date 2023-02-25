@@ -1,5 +1,0 @@
-class MyTask{
-  MyTask(){
-    
-  }
-}

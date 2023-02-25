@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task_management_app/constants/Routes.dart';
-import 'package:task_management_app/floatingActionButton/add_page_sheet.dart';
 import 'package:task_management_app/screens/AddTask.dart';
 import 'package:task_management_app/screens/HomeScreen.dart';
 import 'package:task_management_app/screens/LogInScreen.dart';
+import 'package:task_management_app/screens/ProfileScreen.dart';
 import 'package:task_management_app/screens/SignUpScreen.dart';
 import 'package:task_management_app/screens/UserInfo.dart';
 import 'package:task_management_app/screens/onBoarding/onBoardingScreen1.dart';
@@ -15,11 +15,6 @@ import 'firebase_options.dart';
 
 String myUser = "user";
 
-String userName = "";
-String userDOB = "";
-String? userGender = "";
-String userPhone = "";
-String userAddress = "";
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -32,15 +27,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        colorScheme:
+            ColorScheme.dark(onSecondary: Color.fromARGB(244, 255, 156, 43)),
+        primarySwatch: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: ProfileScreen(),
       routes: {
-        Routes.addTaskScreen: (context) => AddPageSheet(),
+        Routes.addTaskScreen: (context) => AddTaskScreen(),
         Routes.homeScreen: (context) => HomeScreen(),
         Routes.loginScreen: (context) => LoginScreen(),
         Routes.onBoardingScreen1: (context) => OnBoardingScreen1(),
         Routes.onBoardingScreen2: (context) => OnBoardingScreen2(),
         Routes.onBoardingScreen3: (context) => OnBoardingScreen3(),
+        Routes.profileScreen: (context) => ProfileScreen(),
         Routes.signUpScreen: (context) => SignUpScreen(),
         Routes.userinfoscreen: (context) => UserInfo(),
       },
