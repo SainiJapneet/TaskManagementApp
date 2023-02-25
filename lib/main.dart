@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: ProfileScreen(),
+      home: SplashScreen(),
       routes: {
         Routes.addTaskScreen: (context) => AddTaskScreen(),
         Routes.homeScreen: (context) => HomeScreen(),

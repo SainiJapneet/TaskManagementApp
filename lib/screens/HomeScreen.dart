@@ -21,12 +21,9 @@ class MyHomeScreen extends State<StatefulWidget> {
         Navigator.popAndPushNamed(context, "/homescreen");
         break;
       case 1:
-        Navigator.pushNamed(context, "/profileScreen");
-        break;
-      case 2:
         Navigator.pushNamed(context, "/addtaskscreen");
         break;
-      case 3:
+      case 2:
         myUser = "";
         await FirebaseAuth.instance.signOut();
         Navigator.popAndPushNamed(context, "/loginscreen");
@@ -61,12 +58,6 @@ class MyHomeScreen extends State<StatefulWidget> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.home, size: 20), label: "Home"),
               BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.account_box,
-                    size: 20,
-                  ),
-                  label: "Profile"),
-              BottomNavigationBarItem(
                   icon: Icon(Icons.post_add, size: 20), label: "New"),
               BottomNavigationBarItem(
                   icon: Icon(
@@ -82,10 +73,10 @@ class MyHomeScreen extends State<StatefulWidget> {
   }
 
   List<List<String>> myList = [
-    ["Title1", "dd/mm/yyyy", "00:00", "Very Urgent", "Pending"],
-    ["Title2", "dd/mm/yyyy", "04:00", "Urgent", "Pending"],
-    ["Title3", "dd/mm/yyyy", "06:00", "Medium", "Done"],
-    ["Title4", "dd/mm/yyyy", "08:00", "Not important", "Pending"],
-    ["Title5", "dd/mm/yyyy", "10:00", "Urgent", "Done"]
+    ["Cook Food", "25/02/2023", "00:00", "Very Urgent", "Pending"],
+    ["Complete Assignment", "25/02/2023", "04:00", "Urgent", "Pending"],
+    ["Water Plants", "26/02/2023", "06:00", "Medium", "Done"],
+    ["Grocceries", "27/02/2023", "08:00", "Not important", "Pending"],
+    ["Party", "27/02/2023", "10:00", "Urgent", "Done"]
   ];
 }
